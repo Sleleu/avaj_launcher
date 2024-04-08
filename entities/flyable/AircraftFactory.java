@@ -4,7 +4,7 @@ public class AircraftFactory {
 
     static int aircraftID = 0;
 
-    public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
+    public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
         String helicopter = "Helicopter";
 
         if (helicopter.equals(p_type)) {
