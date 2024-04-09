@@ -1,4 +1,4 @@
-package entities.flyable;
+package src.com.avaj.aircraft;
 
 public class Aircraft extends Flyable {
     protected long id;

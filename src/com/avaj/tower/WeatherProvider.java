@@ -1,5 +1,5 @@
-package entities.tower;
-import entities.flyable.Coordinates;
+package src.com.avaj.tower;
+import src.com.avaj.aircraft.*;
 
 public class WeatherProvider {
     private static String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};

@@ -1,4 +1,4 @@
-package avajexception;
+package src.com.avaj.exception;
 
 public class AvajLauncherException extends Exception {
     public AvajLauncherException() {

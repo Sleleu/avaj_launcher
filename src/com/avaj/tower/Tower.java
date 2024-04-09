@@ -1,5 +1,6 @@
-package entities.tower;
-import entities.flyable.Flyable;
+package src.com.avaj.tower;
+
+import src.com.avaj.aircraft.*;
 import java.util.*;
 
 public class Tower {

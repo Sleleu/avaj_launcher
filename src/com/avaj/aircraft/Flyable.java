@@ -1,5 +1,5 @@
-package entities.flyable;
-import entities.tower.WeatherTower;
+package src.com.avaj.aircraft;
+import src.com.avaj.tower.WeatherTower;
 
 public abstract class Flyable {
 
