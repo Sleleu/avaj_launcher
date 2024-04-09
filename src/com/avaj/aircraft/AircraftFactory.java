@@ -1,20 +1,24 @@
 package src.com.avaj.aircraft;
+import src.com.avaj.exception.AvajLauncherException;
 
 public class AircraftFactory {
+    // Singleton implementation
+    private static AircraftFactory aircraftFactory = new AircraftFactory();
+    private AircraftFactory() {}
+    public static AircraftFactory getFactory() { return aircraftFactory; }
 
-    static int aircraftID = 0;
+    int aircraftID = 1;
 
-    public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
-        String helicopter = "Helicopter";
+    public Coordinates createCoordinates(int p_longitude, int p_latitude, int p_height) throws AvajLauncherException {
+        return new Coordinates(p_longitude, p_latitude, p_height);
+    }
 
-        if (helicopter.equals(p_type)) {
-            Helicopter hel = new Helicopter(aircraftID++, p_name, p_coordinates);
-            return hel;
-        }
-        else {
-            System.out.println("newAircraft: p_type variable isn't 'Helicopter'");
-            Helicopter unknow = new Helicopter(aircraftID++, "Unknow", p_coordinates);
-            return unknow;
+    public Aircraft newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
+        switch (p_type) {
+            case "Helicopter":
+                return new Helicopter(aircraftID++, p_name, p_coordinates);
+            default:
+                return null;
         }
     }
 }

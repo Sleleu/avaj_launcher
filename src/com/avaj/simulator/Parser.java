@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Parser {
 
     private int nb_iteration;
+    public int getNbIteration() { return this.nb_iteration; }
 
     private void checkArgs(String[] args) throws AvajLauncherException {
         if (args.length != 1)
@@ -39,7 +40,9 @@ public class Parser {
     private void readFile(File file) throws AvajLauncherException {
         try (Scanner reader = new Scanner(file)) {
             this.nb_iteration = loadNbIteration(reader);
-            printDebug();
+            // continue le parsing
+
+            // printDebug();
         } catch (FileNotFoundException e) {
             throw new AvajLauncherException("Parsing error");
         }

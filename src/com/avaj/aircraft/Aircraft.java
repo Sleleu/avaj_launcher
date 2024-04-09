@@ -5,19 +5,24 @@ public class Aircraft extends Flyable {
     protected String name;
     protected Coordinates coordinates;
 
+    public long getId() { return this.id; }
+    public String getName() { return this.name; }
+    public Coordinates getCoordinates() { return this.coordinates; }
+
     protected Aircraft(long p_id, String p_name, Coordinates p_coordinates)
     {
         this.id = p_id;
         this.name = p_name;
         this.coordinates = p_coordinates;
-        System.out.println("\nAIRCRAFT constructor : " + this);
-        System.out.println("id: " + this.id);
-        System.out.println("name: " + this.name);
-        System.out.println("coordinates: " + this.coordinates);
     }
 
     public void updateConditions()
     {
-        System.out.println("updateConditions called");
+        if (this.coordinates.getHeight() <= 0)
+        {
+            System.out.println(this.getClass().getSimpleName() + "#" + this.getName() + "(" + this.getId() + "): landing.");
+            this.coordinates.setHeight(0);
+            this.weatherTower.unregister(this);
+        }
     }
 }

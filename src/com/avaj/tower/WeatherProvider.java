@@ -2,12 +2,17 @@ package src.com.avaj.tower;
 import src.com.avaj.aircraft.*;
 
 public class WeatherProvider {
-    private static String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
 
+    // Singleton implementation
+    private static WeatherProvider weatherProvider = new WeatherProvider();
     private WeatherProvider() {}
+    public static WeatherProvider getProvider() { return weatherProvider; }
 
-    public static String getCurrentWeather(Coordinates p_coordinates) {
+
+    private String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
+
+    public String getCurrentWeather(Coordinates p_coordinates) {
         // GENERATION ALGORITHM TO IMPLEMENT
-        return weather[0];
+        return weather[3];
     }
 }
