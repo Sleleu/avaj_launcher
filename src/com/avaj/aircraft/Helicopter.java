@@ -1,14 +1,14 @@
 package src.com.avaj.aircraft;
 
+import src.com.avaj.simulator.Logger;
+
 public class Helicopter extends Aircraft {
     public Helicopter(long p_id, String p_name, Coordinates p_coordinate) {
         super(p_id, p_name, p_coordinate);
-        // System.out.println("HELICOPTER constructor : " + this);
     }
 
     @Override
     public void updateConditions() {
-
         String weather = this.weatherTower.getWeather(this.coordinates);
         String message = "";
         switch(weather) {
@@ -31,7 +31,7 @@ public class Helicopter extends Aircraft {
                 break;
         }
         String identity = this.getClass().getSimpleName() + "#" + this.getName() + "(" + this.getId() + ")";
-        System.out.println(identity + ": " + message);
+        Logger.log(identity + ": " + message);
         super.updateConditions();
     }
 }

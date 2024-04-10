@@ -7,6 +7,7 @@ public abstract class Flyable {
     public abstract void updateConditions();
     public abstract long getId();
     public abstract String getName();
+    public abstract Coordinates getCoordinates();
     
     public void registerTower(WeatherTower p_tower) {
         this.weatherTower = p_tower;

@@ -9,7 +9,6 @@ import java.lang.NumberFormatException;
 import java.util.*;
 
 public class Parser {
-
     static final int TYPE = 0;
     static final int NAME = 1;
     static final int LONGITUDE = 2;
@@ -45,10 +44,9 @@ public class Parser {
 
     private int loadNbIteration(BufferedReader reader) throws AvajLauncherException, IOException {
         String line = reader.readLine();
-        if (line != null)
-            return checkInt(line);
-        else
+        if (line.isEmpty())
             throw new AvajLauncherException("Empty file");
+        return checkInt(line);
     }
 
     private void checkAircraftLine(List<String> aircraftAttributes, int index) throws AvajLauncherException {

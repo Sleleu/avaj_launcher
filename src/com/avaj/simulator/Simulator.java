@@ -25,9 +25,8 @@ public class Simulator {
             for (int i = 0; i < parser.getNbIteration(); i++) {
                 weatherTower.changeWeather();
             }
+            Logger.writeToFile();
         }
-        catch (AvajLauncherException e) {
-            System.out.println("AvajLauncher: " + e.getMessage());
-        }
+        catch (AvajLauncherException e) { System.err.println(e.getMessage()); }
     }
 }

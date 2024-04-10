@@ -1,5 +1,7 @@
 package src.com.avaj.aircraft;
 
+import src.com.avaj.simulator.Logger;
+
 public class Baloon extends Aircraft {
     public Baloon(long p_id, String p_name, Coordinates p_coordinate) {
         super(p_id, p_name, p_coordinate);
@@ -30,8 +32,7 @@ public class Baloon extends Aircraft {
                 break;
         }
         String identity = this.getClass().getSimpleName() + "#" + this.getName() + "(" + this.getId() + ")";
-        System.out.println(identity + ": " + message);
+        Logger.log(identity + ": " + message);
         super.updateConditions();
     }
-
 }

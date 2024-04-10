@@ -6,6 +6,6 @@ public class AvajLauncherException extends Exception {
     }
 
     public AvajLauncherException(String message) {
-        super(message);
+        super("AvajLauncher: " + message);
     }
 }

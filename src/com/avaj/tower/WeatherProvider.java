@@ -11,7 +11,7 @@ public class WeatherProvider {
     private String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
 
     public String getCurrentWeather(Coordinates p_coordinates) {
-        long sum  = (p_coordinates.getLongitude() + p_coordinates.getLatitude() + p_coordinates.getHeight());
+        long sum  = ((p_coordinates.getLongitude() + p_coordinates.getLatitude()) % p_coordinates.getHeight() + 42);
         int p = (int) Math.abs(sum % Integer.MAX_VALUE);
         return weather[p % weather.length]; 
     }

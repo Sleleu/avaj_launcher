@@ -1,6 +1,7 @@
 package src.com.avaj.tower;
 
 import src.com.avaj.aircraft.*;
+import src.com.avaj.simulator.Logger;
 import java.util.*;
 
 public class Tower {
@@ -10,11 +11,16 @@ public class Tower {
         String flyableIdentity = p_flyable.getClass().getSimpleName() + "#" + p_flyable.getName() + "(" + p_flyable.getId() + ")";
         
         if (!observers.contains(p_flyable)) {
+            if (p_flyable.getCoordinates().getHeight() <= 0)
+            {
+                Logger.log("Tower says: " + flyableIdentity + " is already landed.");
+                return;
+            }
             observers.add(p_flyable);
-            System.out.println("Tower says: " + flyableIdentity + " registered to weather tower.");
+            Logger.log("Tower says: " + flyableIdentity + " registered to weather tower.");
         }
         else
-            System.out.println("Tower says: " + flyableIdentity + " already registered to weather tower.");
+            Logger.log("Tower says: " + flyableIdentity + " already registered to weather tower.");
     }
 
     public void unregister(Flyable p_flyable) {
@@ -22,10 +28,10 @@ public class Tower {
 
         if (observers.contains(p_flyable)) {
             observers.remove(p_flyable);
-            System.out.println("Tower says: " + flyableIdentity + " unregistered from weather tower.");
+            Logger.log("Tower says: " + flyableIdentity + " unregistered from weather tower.");
         }
         else
-            System.out.println("Tower says: " + flyableIdentity + " not registered to weather tower.");
+            Logger.log("Tower says: " + flyableIdentity + " not registered to weather tower.");
     }
 
     protected void conditionChanged() {
