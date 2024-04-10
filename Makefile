@@ -17,6 +17,8 @@ clean:
 re: clean all
 
 exec:
-	java -cp $(FILENAME) src/com/avaj/simulator/Simulator scenario.txt
+	@java -cp $(FILENAME) src/com/avaj/simulator/Simulator scenario.txt
 
-.PHONY: all clean re exec
+rexec: re exec
+
+.PHONY: all clean re exec rexec

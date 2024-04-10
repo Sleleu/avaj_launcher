@@ -24,5 +24,7 @@ public class Aircraft extends Flyable {
             this.coordinates.setHeight(0);
             this.weatherTower.unregister(this);
         }
+        if (this.coordinates.getHeight() > 100)
+            this.coordinates.setHeight(100);
     }
 }
