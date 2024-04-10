@@ -13,12 +13,12 @@ $(FILENAME)/.compiled: $(SRCS)
 clean:
 	@-find . -name "*.class" -delete
 	@-rm -rf $(FILENAME)
-	@-rm simulation.txt
+	@-rm simulation.txt 2> /dev/null
 
 re: clean all
 
 exec:
-	@java -cp $(FILENAME) src/com/avaj/simulator/Simulator scenario.txt
+	@java -classpath $(FILENAME) src/com/avaj/simulator/Simulator scenario.txt
 
 rexec: re exec
 

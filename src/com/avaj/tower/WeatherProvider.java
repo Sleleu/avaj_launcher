@@ -2,8 +2,6 @@ package src.com.avaj.tower;
 import src.com.avaj.aircraft.*;
 
 public class WeatherProvider {
-
-    // Singleton implementation
     private static WeatherProvider weatherProvider = new WeatherProvider();
     private WeatherProvider() {}
     public static WeatherProvider getProvider() { return weatherProvider; }

@@ -2,7 +2,6 @@ package src.com.avaj.aircraft;
 import src.com.avaj.exception.AvajLauncherException;
 
 public class AircraftFactory {
-    // Singleton implementation
     private static AircraftFactory aircraftFactory = new AircraftFactory();
     private AircraftFactory() {}
     public static AircraftFactory getFactory() { return aircraftFactory; }
@@ -13,7 +12,7 @@ public class AircraftFactory {
         return new Coordinates(p_longitude, p_latitude, p_height);
     }
 
-    public Aircraft newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
+    public Aircraft newAircraft(String p_type, String p_name, Coordinates p_coordinates) throws AvajLauncherException {
         switch (p_type) {
             case "Helicopter":
                 return new Helicopter(aircraftID++, p_name, p_coordinates);
@@ -22,7 +21,7 @@ public class AircraftFactory {
             case "Baloon":
                 return new Baloon(aircraftID++, p_name, p_coordinates);
             default:
-                return null;
+                throw new AvajLauncherException("Invalid aircraft type: " + p_type);
         }
     }
 }
