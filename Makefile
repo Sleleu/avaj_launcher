@@ -13,7 +13,6 @@ $(FILENAME)/.compiled: $(SRCS)
 clean:
 	@-find . -name "*.class" -delete
 	@-rm -rf $(FILENAME)
-	@-rm simulation.txt 2> /dev/null
 
 re: clean all
 

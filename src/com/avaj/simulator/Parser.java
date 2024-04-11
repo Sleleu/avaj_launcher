@@ -6,7 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.File;
 import java.lang.NumberFormatException;
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Parser {
     static final int TYPE = 0;

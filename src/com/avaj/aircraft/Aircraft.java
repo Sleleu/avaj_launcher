@@ -1,7 +1,5 @@
 package src.com.avaj.aircraft;
 
-import src.com.avaj.simulator.Logger;
-
 public class Aircraft extends Flyable {
     protected long id;
     protected String name;
@@ -22,7 +20,7 @@ public class Aircraft extends Flyable {
     {
         if (this.coordinates.getHeight() <= 0)
         {
-            Logger.log(this.getClass().getSimpleName() + "#" + this.getName() + "(" + this.getId() + "): landing.");
+            System.out.println(this.getClass().getSimpleName() + "#" + this.getName() + "(" + this.getId() + "): landing.");
             this.coordinates.setHeight(0);
             this.weatherTower.unregister(this);
         }

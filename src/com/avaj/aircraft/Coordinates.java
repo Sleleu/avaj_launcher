@@ -1,5 +1,4 @@
 package src.com.avaj.aircraft;
-import src.com.avaj.exception.AvajLauncherException;
 
 public class Coordinates {
     private int longitude;

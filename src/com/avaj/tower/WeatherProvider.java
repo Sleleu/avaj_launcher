@@ -1,5 +1,5 @@
 package src.com.avaj.tower;
-import src.com.avaj.aircraft.*;
+import src.com.avaj.aircraft.Coordinates;
 
 public class WeatherProvider {
     private static WeatherProvider weatherProvider = new WeatherProvider();
@@ -9,8 +9,7 @@ public class WeatherProvider {
     private String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
 
     public String getCurrentWeather(Coordinates p_coordinates) {
-        long sum  = ((p_coordinates.getLongitude() + p_coordinates.getLatitude()) % p_coordinates.getHeight() + 42);
-        int p = (int) Math.abs(sum % Integer.MAX_VALUE);
-        return weather[p % weather.length]; 
+        int sum  = (p_coordinates.getLongitude() + p_coordinates.getLatitude() + p_coordinates.getHeight() + 42);
+        return weather[sum % weather.length]; 
     }
 }
