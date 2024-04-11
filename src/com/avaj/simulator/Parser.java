@@ -28,7 +28,10 @@ public class Parser {
 
     private int checkInt(String arg) throws AvajLauncherException {
         try {
-            return Integer.parseInt(arg);
+            int value = Integer.parseInt(arg);
+            if (value < 0)
+                throw new AvajLauncherException("Invalid integer value");
+            return value;
         }
         catch (NumberFormatException e) {
             throw new AvajLauncherException("Invalid integer format");
@@ -44,7 +47,7 @@ public class Parser {
 
     private int loadNbIteration(BufferedReader reader) throws AvajLauncherException, IOException {
         String line = reader.readLine();
-        if (line.isEmpty())
+        if (line == null || line.isEmpty())
             throw new AvajLauncherException("Empty file");
         return checkInt(line);
     }

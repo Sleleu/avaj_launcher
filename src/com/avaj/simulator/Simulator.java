@@ -13,6 +13,8 @@ public class Simulator {
             WeatherTower weatherTower = new WeatherTower();
             AircraftFactory aircraftFactory = AircraftFactory.getFactory();
 
+            if (parser.getNbIteration() > 10000)
+                System.out.println("Warning: " + parser.getNbIteration() + " iterations, this can take a while...");
             for (int i = 0; i < parser.getAircrafts().size(); i++) {
                 List<String> aircraftAttributes = parser.getAircrafts().get(i);
                 Coordinates coord = aircraftFactory.createCoordinates(Integer.parseInt(aircraftAttributes.get(Parser.LONGITUDE)),
