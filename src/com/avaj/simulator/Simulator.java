@@ -1,7 +1,7 @@
 package src.com.avaj.simulator;
 
 import src.com.avaj.aircraft.AircraftFactory;
-import src.com.avaj.aircraft.Aircraft;
+import src.com.avaj.aircraft.Flyable;
 import src.com.avaj.aircraft.Coordinates;
 import src.com.avaj.exception.AvajLauncherException;
 import src.com.avaj.tower.WeatherTower;
@@ -29,7 +29,7 @@ public class Simulator {
                 Coordinates coord = aircraftFactory.createCoordinates(Integer.parseInt(aircraftAttributes.get(Parser.LONGITUDE)),
                         Integer.parseInt(aircraftAttributes.get(Parser.LATITUDE)),
                         Integer.parseInt(aircraftAttributes.get(Parser.HEIGHT)));
-                Aircraft aircraft = aircraftFactory.newAircraft(aircraftAttributes.get(Parser.TYPE), aircraftAttributes.get(Parser.NAME), coord);
+                Flyable aircraft = aircraftFactory.newAircraft(aircraftAttributes.get(Parser.TYPE), aircraftAttributes.get(Parser.NAME), coord);
                 aircraft.registerTower(weatherTower);
             }
 

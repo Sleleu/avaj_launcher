@@ -12,16 +12,21 @@ public class AircraftFactory {
         return new Coordinates(p_longitude, p_latitude, p_height);
     }
 
-    public Aircraft newAircraft(String p_type, String p_name, Coordinates p_coordinates) throws AvajLauncherException {
+    public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) throws AvajLauncherException {
+        Flyable flyable;
         switch (p_type) {
             case "Helicopter":
-                return new Helicopter(aircraftID++, p_name, p_coordinates);
+                flyable =  new Helicopter(aircraftID++, p_name, p_coordinates);
+                break;
             case "JetPlane":
-                return new JetPlane(aircraftID++, p_name, p_coordinates);
+                flyable = new JetPlane(aircraftID++, p_name, p_coordinates);
+                break;
             case "Baloon":
-                return new Baloon(aircraftID++, p_name, p_coordinates);
-            default:
+                flyable = new Baloon(aircraftID++, p_name, p_coordinates);
+                break;
+                default:
                 throw new AvajLauncherException("Invalid aircraft type: " + p_type);
         }
+        return flyable;
     }
 }
